@@ -1,0 +1,194 @@
+body {
+	background-color: #ADD8E6;
+	width: 100%;
+}
+
+.container {
+	width: 100%;
+	max-width: 700px;
+}
+
+.appTitle {
+	text-align: center;
+	margin-top: 40px;
+	font-size: 56px;
+}
+
+.table > tbody > tr > td {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.foodContainer {
+	outline: 1px solid #aaa;
+	background-color: #fff;
+	margin: 5px;
+}
+
+/* Give each cell a fix height of 54px.
+ * This number should account for the inner div
+ * max height of 38 px plus the Bootstrap applied
+ * padding at the top and bottom of 8 px.
+ */
+.cell {
+	text-align: center;
+	height: 54px;
+}
+
+/* Give each div a max height of 38 px and hide
+ * content that exceeds it.
+ */
+.inner {
+	max-height: 38px;
+	overflow: hidden;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.daily-calories {
+	font-size: 16px;
+}
+
+/* Style the input form.
+ */
+#new-food {
+	width: 100%;
+	margin: 25px 0 15px 0;
+}
+
+/* Change background color on hover. */
+table > tbody > tr:hover {
+	background-color: #eee;
+}
+
+#info {
+	text-align: center;
+	font-size: 12px;
+}
+
+#info a {
+	color: inherit;
+}
+
+a {
+	text-decoration: underline;
+}
+
+/* Style tables on smaller screens. */
+@media screen and (max-width: 450px) {
+	/* Force tables not to be tables anymore
+	 * (taken from CSS Tricks - see README)
+	 */
+	table, thead, tbody, th, td, tr {
+		display: block;
+	}
+
+	/* Hide table headers withour using `display: none`
+	 * for accessibility.
+	 */
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	tr {
+		border: 1px solid #ccc;
+	}
+
+	td {
+		/* Behave like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50%;
+	}
+
+	/* Hide first row on each item. */
+	td:nth-of-type(1) {
+		display: none;
+	}
+
+	/* Style pseudo elements. */
+	td:before {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 45%;
+		white-space: nowrap;
+	}
+
+	/* Style the pseudo element on the third row cell. */
+	td:nth-of-type(3):before {
+		content: "Calories: ";
+		left: 23%;
+	}
+
+	.appTitle {
+		font-size: 36px;
+	}
+
+	/* Re-style `inner` div on small screens. */
+	.inner {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	/* Change padding to let the pseudo element take space towards
+	 * the moddle of the cell.
+	 */
+	.item-calories {
+		padding-left: 16%;
+	}
+
+	/* Shrink cells vertically. */
+	.cell {
+		height: 5px;
+	}
+
+	.daily-calories {
+		font-size: 14px;
+	}
+
+	#info {
+		font-size: 10px;
+	}
+}
+
+/* Give special styles to the smallest devices. */
+@media screen and (max-width: 375px) {
+	td:nth-of-type(3):before {
+		left: 22%;
+	}
+
+	.item-calories {
+		padding-left: 18%;
+	}
+}
+
+@media screen and (max-width: 325px) {
+	td:nth-of-type(3):before {
+		left: 20%;
+	}
+
+	body {
+		font-size: 11px;
+	}
+
+	.appTitle {
+		font-size: 26px;
+	}
+
+	.item-calories {
+		padding-left: 18%;
+	}
+
+	.daily-calories {
+		font-size: 10px;
+	}
+
+	#info {
+		font-size: 8px;
+	}
+}

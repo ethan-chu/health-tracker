@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Health Tracker</title>
+	<!-- Bootstrap CSS CDN -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Bootstrap CSS local fallback -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="container">
+		<section id="foods">
+			<header>
+				<h1 class="appTitle">Health Tracker</h1>
+				<input id="new-food" placeholder="What food item are you tracking?" autofocus>
+			</header>
+
+			<section id="main">
+				<table class="table" id="food-table">
+					<tbody id="food-items"> </tbody>
+				</table>
+			</section>
+
+			<section id="selected-items">
+				<table class="table" id="selected-food-table">
+					<tbody id="selected-food-items"> </tbody>
+				</table>
+			</section>
+
+			<div class="selected-items-name" id="selected-name"></div>
+		</section>
+	</div>
+	<footer id="info">
+		<a href="https://developer.nutritionix.com/" target="_blank"><img src="img/nutritionix_api_reference.png"/></a>
+	</footer>
+
+	<!-- Underscore template -->
+	<script id="food-template" type="text/template">
+		<!-- Cells with inner divs to fix their height -->
+		<td class="cell"><div class="inner"><%= brandName %></div></td>
+		<td class="cell"><div class="inner"><%= itemName %></div></td>
+		<td class="cell"><div class="inner item-calories"><%= itemCalories %></div></td>
+		<td class="cell"><div class="inner"><%= itemQuantity %></div></td>
+	</script>
+
+	<!-- Dependency files -->
+	<!-- Libraries -->
+	<!-- jQuery Google CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- jQuery local fallback -->
+	<script src="lib/jquery-3.1.1.min.js"></script>
+	<script src="lib/underscore-min.js"></script>
+	<script src="lib/backbone-min.js"></script>
+
+	<!-- Backbone files -->
+	<script src="js/models/food.js"></script>
+	<script src="js/collections/foodList.js"></script>
+	<script src="js/collections/selectedFoodList.js"></script>
+	<script src="js/views/food.js"></script>
+	<script src="js/views/foodList.js"></script>
+	<script src="js/views/selectedFood.js"></script>
+	<script src="js/views/selectedFoodList.js"></script>
+	<script src="js/views/displayCalories.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
